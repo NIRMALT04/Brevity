@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Web Insights AI Companion</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.2.19/tailwind.min.css" rel="stylesheet">
+    <style>
+        body {
+            width: 450px;
+            height: 700px;
+            display: flex;
+            flex-direction: column;
+            background-color: #f0f2f5;
+        }
+        #chat-container {
+            flex-grow: 1;
+            overflow-y: auto;
+            padding: 15px;
+            display: flex;
+            flex-direction: column;
+        }
+        #message-input {
+            display: flex;
+            padding: 10px;
+            background-color: white;
+            border-top: 1px solid #e0e0e0;
+        }
+        .message {
+            max-width: 90%;
+            margin-bottom: 15px;
+            padding: 10px;
+            border-radius: 10px;
+            line-height: 1.4;
+        }
+        .user-message {
+            align-self: flex-end;
+            background-color: #007bff;
+            color: white;
+        }
+        .ai-message {
+            align-self: flex-start;
+            background-color: #f1f0f0;
+            color: black;
+        }
+        .code-block {
+            background-color: #f4f4f4;
+            border-radius: 5px;
+            padding: 10px;
+            font-family: monospace;
+            white-space: pre-wrap;
+            word-wrap: break-word;
+        }
+        #chat-container {
+            scroll-behavior: smooth;
+        }
+        .mode-buttons {
+            display: flex;
+            justify-content: space-around;
+            padding: 10px;
+            background-color: #e9ecef;
+        }
+    </style>
+</head>
+<body class="flex flex-col">
+    <div class="mode-buttons">
+        <button id="summarize-mode" class="px-4 py-2 bg-blue-500 text-white rounded active:bg-blue-600">Summarize</button>
+        <button id="analyze-mode" class="px-4 py-2 bg-green-500 text-white rounded active:bg-green-600">Analyze</button>
+        <button id="generate-mode" class="px-4 py-2 bg-purple-500 text-white rounded active:bg-purple-600">Generate</button>
+    </div>
+    <div id="chat-container" class="flex-grow overflow-y-auto"></div>
+    <div id="message-input" class="flex items-center">
+        <input 
+            type="text" 
+            id="prompt-input" 
+            placeholder="Ask something or choose a mode..." 
+            class="flex-grow p-2 border rounded mr-2"
+        >
+        <button 
+            id="send-btn" 
+            class="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600"
+        >
+            Send
+        </button>
+    </div>
+    <script src="popup.js"></script>
+</body>
+</html>
